@@ -78,7 +78,7 @@ export function secretBox(msg: Uint8Array, nonce: Uint8Array, key: Uint8Array): 
 	}
 	crypto_secretbox(c, m, m.length, nonce, key);
 	return c.subarray(crypto_secretbox_BOXZEROBYTES);
-};
+}
 export function secretBoxOpen(box: Uint8Array, nonce: Uint8Array, key: Uint8Array): Uint8Array | null {
 	checkLengths(key, nonce);
 	const c: Uint8Array = new Uint8Array(crypto_secretbox_BOXZEROBYTES + box.length);
@@ -93,7 +93,7 @@ export function secretBoxOpen(box: Uint8Array, nonce: Uint8Array, key: Uint8Arra
 		return null;
 	}
 	return m.subarray(crypto_secretbox_ZEROBYTES);
-};
+}
 export function scalarMult(n: Uint8Array, p: Uint8Array): Uint8Array {
 	if (n.length !== crypto_scalarmult_SCALARBYTES) {
 		throw new Error('bad n size');
@@ -104,7 +104,7 @@ export function scalarMult(n: Uint8Array, p: Uint8Array): Uint8Array {
 	const q: Uint8Array = new Uint8Array(crypto_scalarmult_BYTES);
 	crypto_scalarmult(q, n, p);
 	return q;
-};
+}
 export function scalarMultBase(n: Uint8Array): Uint8Array {
 	if (n.length !== crypto_scalarmult_SCALARBYTES) {
 		throw new Error('bad n size');
@@ -112,19 +112,19 @@ export function scalarMultBase(n: Uint8Array): Uint8Array {
 	const q: Uint8Array = new Uint8Array(crypto_scalarmult_BYTES);
 	crypto_scalarmult_base(q, n);
 	return q;
-};
+}
 export function box(msg: Uint8Array, nonce: Uint8Array, publicKey: Uint8Array, secretKey: Uint8Array): Uint8Array {
 	return secretBox(msg, nonce, boxBefore(publicKey, secretKey));
-};
+}
 export function boxBefore(publicKey: Uint8Array, secretKey: Uint8Array): Uint8Array {
 	checkBoxLengths(publicKey, secretKey);
 	const k: Uint8Array = new Uint8Array(crypto_box_BEFORENMBYTES);
 	crypto_box_beforenm(k, publicKey, secretKey);
 	return k;
-};
+}
 export function boxOpen(msg: Uint8Array, nonce: Uint8Array, publicKey: Uint8Array, secretKey: Uint8Array): Uint8Array | null {
 	return secretBoxOpen(msg, nonce, boxBefore(publicKey, secretKey));
-};
+}
 export function boxKeyPair(): KeyPair {
 	const pk: Uint8Array = new Uint8Array(crypto_box_PUBLICKEYBYTES);
 	const sk: Uint8Array = new Uint8Array(crypto_box_SECRETKEYBYTES);
@@ -133,7 +133,7 @@ export function boxKeyPair(): KeyPair {
 		publicKey: pk,
 		secretKey: sk
 	};
-};
+}
 export function boxKeyPairFromSecretKey(secretKey: Uint8Array): KeyPair {
 	if (secretKey.length !== crypto_box_SECRETKEYBYTES) {
 		throw new Error('bad secret key size');
@@ -144,7 +144,7 @@ export function boxKeyPairFromSecretKey(secretKey: Uint8Array): KeyPair {
 		publicKey: pk,
 		secretKey: new Uint8Array(secretKey)
 	};
-};
+}
 export function sign(msg: Uint8Array, secretKey: Uint8Array): Uint8Array {
 	if (secretKey.length !== crypto_sign_SECRETKEYBYTES) {
 		throw new Error('bad secret key size');
@@ -152,7 +152,7 @@ export function sign(msg: Uint8Array, secretKey: Uint8Array): Uint8Array {
 	const signedMsg: Uint8Array = new Uint8Array(crypto_sign_BYTES + msg.length);
 	crypto_sign(signedMsg, msg, msg.length, secretKey);
 	return signedMsg;
-};
+}
 export function signOpen(signedMsg: Uint8Array, publicKey: Uint8Array): Uint8Array | null {
 	if (publicKey.length !== crypto_sign_PUBLICKEYBYTES) {
 		throw new Error('bad public key size');
@@ -167,7 +167,7 @@ export function signOpen(signedMsg: Uint8Array, publicKey: Uint8Array): Uint8Arr
 		m[i] = tmp[i];
 	}
 	return m;
-};
+}
 export function signDetached(msg: Uint8Array, secretKey: Uint8Array): Uint8Array {
 	const signedMsg: Uint8Array = sign(msg, secretKey);
 	const sig: Uint8Array = new Uint8Array(crypto_sign_BYTES);
@@ -175,7 +175,7 @@ export function signDetached(msg: Uint8Array, secretKey: Uint8Array): Uint8Array
 		sig[i] = signedMsg[i];
 	}
 	return sig;
-};
+}
 export function signDetachedVerify(msg: Uint8Array, sig: Uint8Array, publicKey: Uint8Array): boolean {
 	if (sig.length !== crypto_sign_BYTES) {
 		throw new Error('bad signature size');
@@ -192,7 +192,7 @@ export function signDetachedVerify(msg: Uint8Array, sig: Uint8Array, publicKey: 
 		sm[i + crypto_sign_BYTES] = msg[i];
 	}
 	return (crypto_sign_open(m, sm, sm.length, publicKey) >= 0);
-};
+}
 export function signKeyPair(): KeyPair {
 	const pk: Uint8Array = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
 	const sk: Uint8Array = new Uint8Array(crypto_sign_SECRETKEYBYTES);
@@ -201,7 +201,7 @@ export function signKeyPair(): KeyPair {
 		publicKey: pk,
 		secretKey: sk
 	};
-};
+}
 export function signKeyPairFromSecretKey(secretKey: Uint8Array): KeyPair {
 	if (secretKey.length !== crypto_sign_SECRETKEYBYTES) {
 		throw new Error('bad secret key size');
@@ -214,7 +214,7 @@ export function signKeyPairFromSecretKey(secretKey: Uint8Array): KeyPair {
 		publicKey: pk,
 		secretKey: new Uint8Array(secretKey)
 	};
-};
+}
 export function signKeyPairFromSeed(seed: Uint8Array): KeyPair {
 	if (seed.length !== crypto_sign_SEEDBYTES) {
 		throw new Error('bad seed size');
@@ -229,12 +229,12 @@ export function signKeyPairFromSeed(seed: Uint8Array): KeyPair {
 		publicKey: pk,
 		secretKey: sk
 	};
-};
+}
 export function hash(msg: Uint8Array): Uint8Array {
 	const h: Uint8Array = new Uint8Array(crypto_hash_BYTES);
 	crypto_hash(h, msg, msg.length);
 	return h;
-};
+}
 export function verify(x: Uint8Array, y: Uint8Array): boolean {
 	// Zero length arguments are considered not equal.
 	if (
