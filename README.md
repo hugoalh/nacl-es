@@ -123,4 +123,3 @@ This is a modified edition of the NPM package [`tweetnacl`](https://www.npmjs.co
 > - For the full or prettier documentation, can visit via:
 >   - [Deno CLI `deno doc`](https://docs.deno.com/runtime/reference/cli/documentation_generator/)
 >   - [JSR](https://jsr.io/@hugoalh/nacl)
->   - [NPM package `tweetnacl`](https://www.npmjs.com/package/tweetnacl/v/1.0.3#usage)
