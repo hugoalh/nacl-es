@@ -162,7 +162,13 @@ export function scalarMultBase(n: Uint8Array): Uint8Array {
 export function box(msg: Uint8Array, nonce: Uint8Array, publicKey: Uint8Array, secretKey: Uint8Array): Uint8Array {
 	return secretBox(msg, nonce, boxBefore(publicKey, secretKey));
 }
-/** Encrypt and authenticate message using the key and the nonce. The nonce must be unique for each distinct message for this key. Return an encrypted and authenticated message, which is secretBoxOverheadLength longer than the original message. */
+/**
+ * Encrypt and authenticate message using the key and the nonce. The nonce must be unique for each distinct message for this key. Return an encrypted and authenticated message, which is {@linkcode secretBoxOverheadLength} longer than the original message.
+ * @param {Uint8Array} msg Message.
+ * @param {Uint8Array} nonce Nonce.
+ * @param {Uint8Array} key Key.
+ * @returns {Uint8Array} An encrypted and authenticated message.
+ */
 export const boxAfter = secretBox;
 /**
  * Get a precomputed shared key which can be used in {@linkcode boxAfter} and {@linkcode boxOpenAfter}.
@@ -187,7 +193,13 @@ export function boxBefore(publicKey: Uint8Array, secretKey: Uint8Array): Uint8Ar
 export function boxOpen(msg: Uint8Array, nonce: Uint8Array, publicKey: Uint8Array, secretKey: Uint8Array): Uint8Array | null {
 	return secretBoxOpen(msg, nonce, boxBefore(publicKey, secretKey));
 }
-/** Authenticate and decrypt the given secret box using the key and the nonce. Returns the original message, or null if authentication fail. */
+/**
+ * Authenticate and decrypt the given secret box using the key and the nonce. Returns the original message, or `null` if authentication fail.
+ * @param {Uint8Array} box Secret box.
+ * @param {Uint8Array} nonce Nonce.
+ * @param {Uint8Array} key Key.
+ * @returns {Uint8Array | null} The original message, or `null` if authentication fail.
+ */
 export const boxOpenAfter = secretBoxOpen;
 /**
  * Generate a new random key pair for box and return an object with public key and secret key members.
