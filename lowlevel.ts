@@ -1,5 +1,5 @@
 /*
-NOTE: Ported in 2014 by Dmitry Chestnykh and Devi Mandiri. Public domain. Implementation derived from TweetNaCl version 20140427. See for details: https://tweetnacl.cr.yp.to/
+NOTE: Ported in 2014 by Dmitry Chestnykh and Devi Mandiri. Public domain. Implementation derived from TweetNaCl (https://tweetnacl.cr.yp.to/) version 20140427.
 */
 import { randomBytesByTargetSizeFromBegin } from "./_random_bytes.ts";
 export interface KeyPair {

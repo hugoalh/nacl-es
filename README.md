@@ -8,7 +8,7 @@
 
 An ECMAScript (JavaScript & TypeScript) module for [NaCl](https://nacl.cr.yp.to/) / [TweetNaCl](https://tweetnacl.cr.yp.to/) high-security cryptographic library.
 
-This is a modified edition of the NPM package [`tweetnacl`](https://www.npmjs.com/package/tweetnacl) which aim for:
+This module is a modified edition of the [TweetNaClJS](https://github.com/dchest/tweetnacl-js) which aim for:
 
 - ECMAScript
 - TypeScript first
