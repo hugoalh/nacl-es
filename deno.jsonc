@@ -44,6 +44,22 @@
 	},
 	"lock": false,
 	"tasks": {
+		"github-npm-build": {
+			"command": "deno run --allow-all --no-prompt --quiet .github-npm.build.ts",
+			"description": "Build for GitHub NPM."
+		},
+		"github-npm-check": {
+			"command": "deno task --cwd \"$(deno task github-npm-var-distribution-relative)\" --eval \"npm publish --dry-run\"",
+			"description": "Check for GitHub NPM."
+		},
+		"github-npm-publish": {
+			"command": "deno task --cwd \"$(deno task github-npm-var-distribution-relative)\" --eval \"npm publish --tag recent\"",
+			"description": "Publish to GitHub NPM."
+		},
+		"github-npm-var-distribution-relative": {
+			"command": "echo \"dist/github-npm\"",
+			"description": "Variable of the GitHub NPM distribution directory relative path."
+		},
 		"jsr-check": {
 			"command": "deno publish --allow-dirty --config \"$(deno task jsr-var-manifest-relative)\" --dry-run --no-check --no-provenance",
 			"description": "Check for JSR."
