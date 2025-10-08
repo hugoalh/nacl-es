@@ -3,7 +3,6 @@
 	"name": "@hugoalh/nacl",
 	"version": "0.1.1",
 	"exports": {
-		"./highlevel": "./highlevel.ts",
 		"./lowlevel": "./lowlevel.ts",
 		".": "./mod.ts"
 	},

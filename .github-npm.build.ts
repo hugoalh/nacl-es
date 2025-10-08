@@ -33,6 +33,6 @@ await invokeDenoNodeJSTransformer({
 			access: "public"
 		}
 	},
-	outputDirectory: "dist/npm",
+	outputDirectory: "dist/github-npm",
 	outputDirectoryPreEmpty: true
 });

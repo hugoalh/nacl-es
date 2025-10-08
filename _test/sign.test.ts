@@ -2,7 +2,10 @@ import {
 	deepStrictEqual,
 	ok
 } from "node:assert";
-import * as buffer from "./buffer.ts";
+import {
+	convertBase64StringToUint8Array,
+	convertUint8ArrayToBase64String
+} from "./utility.ts";
 import {
 	sign,
 	signDetached,
@@ -12,14 +15,14 @@ import {
 	signSignatureLength
 } from "../mod.ts";
 function tester(sk: string, msg: string, goodSig: string): void {
-	const keys = signKeyPairFromSecretKey(buffer.fromBase64(sk));
-	const msgFmt = buffer.fromBase64(msg);
+	const keys = signKeyPairFromSecretKey(convertBase64StringToUint8Array(sk));
+	const msgFmt = convertBase64StringToUint8Array(msg);
 	const signedMsg = sign(msgFmt, keys.secretKey);
-	deepStrictEqual(buffer.toBase64(signedMsg.subarray(0, signSignatureLength)), goodSig);
+	deepStrictEqual(convertUint8ArrayToBase64String(signedMsg.subarray(0, signSignatureLength)), goodSig);
 	const openedMsg = signOpen(signedMsg, keys.publicKey) ?? Uint8Array.from([]);
-	deepStrictEqual(buffer.toBase64(openedMsg), msg);
+	deepStrictEqual(convertUint8ArrayToBase64String(openedMsg), msg);
 	const sig = signDetached(msgFmt, keys.secretKey);
-	deepStrictEqual(buffer.toBase64(sig), goodSig);
+	deepStrictEqual(convertUint8ArrayToBase64String(sig), goodSig);
 	const result = signDetachedVerify(msgFmt, sig, keys.publicKey);
 	ok(result);
 }

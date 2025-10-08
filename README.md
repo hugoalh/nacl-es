@@ -8,10 +8,7 @@
 
 An ECMAScript module for [NaCl](https://nacl.cr.yp.to/) / [TweetNaCl](https://tweetnacl.cr.yp.to/) high-security cryptographic library.
 
-This is a modified edition of the [TweetNaClJS](https://github.com/dchest/tweetnacl-js) which aim for:
-
-- ECMAScript
-- TypeScript first
+This is a modified edition of the [TweetNaCl JS](https://github.com/dchest/tweetnacl-js) which with ECMAScript and TypeScript.
 
 ## 🎯 Targets
 
@@ -51,8 +48,7 @@ This does not request any runtime permission.
 
 | **Name** | **Path** | **Description** |
 |:--|:--|:--|
-| `.` | `./mod.ts` | Default. |
-| `./highlevel` | `./highlevel.ts` | High level APIs. |
+| `.` | `./mod.ts` | Default. High level APIs. |
 | `./lowlevel` | `./lowlevel.ts` | Low level APIs. |
 
 ## 🧩 APIs

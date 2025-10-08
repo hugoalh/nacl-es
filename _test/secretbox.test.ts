@@ -2,21 +2,24 @@ import {
 	deepStrictEqual,
 	ok
 } from "node:assert";
-import * as buffer from "./buffer.ts";
+import {
+	convertBase64StringToUint8Array,
+	convertUint8ArrayToBase64String
+} from "./utility.ts";
 import {
 	secretBox,
 	secretBoxOpen
 } from "../mod.ts";
 function tester(key: string, nonce: string, msg: string, goodBox: string): void {
-	const keyFmt = buffer.fromBase64(key);
-	const nonceFmt = buffer.fromBase64(nonce);
-	const msgFmt = buffer.fromBase64(msg);
-	const goodBoxFmt = buffer.fromBase64(goodBox);
+	const keyFmt = convertBase64StringToUint8Array(key);
+	const nonceFmt = convertBase64StringToUint8Array(nonce);
+	const msgFmt = convertBase64StringToUint8Array(msg);
+	const goodBoxFmt = convertBase64StringToUint8Array(goodBox);
 	const box = secretBox(msgFmt, nonceFmt, keyFmt);
-	deepStrictEqual(buffer.toBase64(box), goodBox);
+	deepStrictEqual(convertUint8ArrayToBase64String(box), goodBox);
 	const openedBox = secretBoxOpen(goodBoxFmt, nonceFmt, keyFmt);
 	ok(openedBox !== null);
-	deepStrictEqual(buffer.toBase64(openedBox), msg);
+	deepStrictEqual(convertUint8ArrayToBase64String(openedBox), msg);
 }
 Deno.test("0AC2A4", { permissions: "none" }, () => {
 	tester(

@@ -1,5 +1,8 @@
 import { deepStrictEqual } from "node:assert";
-import * as buffer from "./buffer.ts";
+import {
+	convertUint8ArrayToBase64String,
+	convertBase64StringToUint8Array
+} from "./utility.ts";
 import {
 	scalarMult,
 	scalarMultBase
@@ -11,21 +14,21 @@ Deno.test("Base", { permissions: "none" }, () => {
 		//@ts-ignore Test.
 		input = scalarMultBase(input);
 	}
-	deepStrictEqual(buffer.toBase64(input), buffer.toBase64(golden));
+	deepStrictEqual(convertUint8ArrayToBase64String(input), convertUint8ArrayToBase64String(golden));
 });
 function testerMainBase(pk1: string, sk1: string, pk2: string, sk2: string, out: string): void {
-	const pk1Fmt = buffer.fromBase64(pk1);
-	const sk1Fmt = buffer.fromBase64(sk1);
-	const pk2Fmt = buffer.fromBase64(pk2);
-	const sk2Fmt = buffer.fromBase64(sk2);
+	const pk1Fmt = convertBase64StringToUint8Array(pk1);
+	const sk1Fmt = convertBase64StringToUint8Array(sk1);
+	const pk2Fmt = convertBase64StringToUint8Array(pk2);
+	const sk2Fmt = convertBase64StringToUint8Array(sk2);
 	const jpk1 = scalarMultBase(sk1Fmt);
-	deepStrictEqual(buffer.toBase64(jpk1), pk1);
+	deepStrictEqual(convertUint8ArrayToBase64String(jpk1), pk1);
 	const jpk2 = scalarMultBase(sk2Fmt);
-	deepStrictEqual(buffer.toBase64(jpk2), pk2);
+	deepStrictEqual(convertUint8ArrayToBase64String(jpk2), pk2);
 	const jout1 = scalarMult(sk1Fmt, pk2Fmt);
-	deepStrictEqual(buffer.toBase64(jout1), out);
+	deepStrictEqual(convertUint8ArrayToBase64String(jout1), out);
 	const jout2 = scalarMult(sk2Fmt, pk1Fmt);
-	deepStrictEqual(buffer.toBase64(jout2), out);
+	deepStrictEqual(convertUint8ArrayToBase64String(jout2), out);
 }
 Deno.test("Main 04B448", { permissions: "none" }, () => {
 	testerMainBase(

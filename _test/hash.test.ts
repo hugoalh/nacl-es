@@ -1,10 +1,13 @@
 import { deepStrictEqual } from "node:assert";
-import * as buffer from "./buffer.ts";
+import {
+	convertBase64StringToUint8Array,
+	convertUint8ArrayToBase64String
+} from "./utility.ts";
 import { hash } from "../mod.ts";
 function tester(msg: string, goodHash: string): void {
-	const msgFmt = buffer.fromBase64(msg);
+	const msgFmt = convertBase64StringToUint8Array(msg);
 	const hashResult = hash(msgFmt);
-	deepStrictEqual(buffer.toBase64(hashResult), goodHash);
+	deepStrictEqual(convertUint8ArrayToBase64String(hashResult), goodHash);
 }
 Deno.test("503E6C", { permissions: "none" }, () => {
 	tester(
