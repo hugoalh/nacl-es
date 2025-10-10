@@ -30,6 +30,7 @@ import {
 	crypto_sign_SEEDBYTES,
 	type KeyPair
 } from "./lowlevel.ts";
+export type { KeyPair };
 export {
 	/**
 	 * Generate a `Uint8Array` of the given length containing random bytes of cryptographic quality.
