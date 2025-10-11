@@ -33,6 +33,6 @@ await invokeDenoNodeJSTransformer({
 			access: "public"
 		}
 	},
-	outputDirectory: "dist/github-npm",
+	outputDirectory: "dist/kaki87-npm",
 	outputDirectoryPreEmpty: true
 });

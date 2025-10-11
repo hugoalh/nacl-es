@@ -33,6 +33,6 @@ await invokeDenoNodeJSTransformer({
 			access: "public"
 		}
 	},
-	outputDirectory: "dist/github-npm",
+	outputDirectory: "dist/codeberg-npm",
 	outputDirectoryPreEmpty: true
 });
