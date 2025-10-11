@@ -16,7 +16,7 @@ await invokeDenoNodeJSTransformer({
 		version: jsrManifest.version,
 		description: "A module for NaCl / TweetNaCl high-security cryptographic library.",
 		keywords: [
-			"nacl",
+			"nacl"
 		],
 		homepage: "https://github.com/hugoalh/nacl-es#readme",
 		bugs: {

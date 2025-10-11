@@ -18,15 +18,15 @@ await invokeDenoNodeJSTransformer({
 		keywords: [
 			"nacl"
 		],
-		homepage: "https://github.com/hugoalh/nacl-es#readme",
+		homepage: "https://codeberg.org/hugoalh/nacl-es#readme",
 		bugs: {
-			url: "https://github.com/hugoalh/nacl-es/issues"
+			url: "https://codeberg.org/hugoalh/nacl-es/issues"
 		},
 		license: "MIT",
 		author: "hugoalh",
 		repository: {
 			type: "git",
-			url: "git+https://github.com/hugoalh/nacl-es.git"
+			url: "git+https://codeberg.org/hugoalh/nacl-es.git"
 		},
 		private: false,
 		publishConfig: {
