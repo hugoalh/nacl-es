@@ -18,21 +18,21 @@ await invokeDenoNodeJSTransformer({
 		keywords: [
 			"nacl"
 		],
-		homepage: "https://git.kaki87.net/hugoalh/nacl-es#readme",
+		homepage: "https://github.com/hugoalh/nacl-es#readme",
 		bugs: {
-			url: "https://git.kaki87.net/hugoalh/nacl-es/issues"
+			url: "https://github.com/hugoalh/nacl-es/issues"
 		},
 		license: "MIT",
 		author: "hugoalh",
 		repository: {
 			type: "git",
-			url: "git+https://git.kaki87.net/hugoalh/nacl-es.git"
+			url: "git+https://github.com/hugoalh/nacl-es.git"
 		},
 		private: false,
 		publishConfig: {
 			access: "public"
 		}
 	},
-	outputDirectory: "dist/kaki87-npm",
+	outputDirectory: "dist/npm-github",
 	outputDirectoryPreEmpty: true
 });
