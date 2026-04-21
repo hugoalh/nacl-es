@@ -2,9 +2,10 @@
 
 [**⚖️** MIT](./LICENSE.md)
 
-[![GitHub: hugoalh/nacl-es](https://img.shields.io/github/v/release/hugoalh/nacl-es?label=hugoalh/nacl-es&labelColor=181717&logo=github&logoColor=ffffff&sort=semver&style=flat "GitHub: hugoalh/nacl-es")](https://github.com/hugoalh/nacl-es)
-[![JSR: @hugoalh/nacl](https://img.shields.io/jsr/v/@hugoalh/nacl?label=@hugoalh/nacl&labelColor=F7DF1E&logo=jsr&logoColor=000000&style=flat "JSR: @hugoalh/nacl")](https://jsr.io/@hugoalh/nacl)
-[![NPM: @hugoalh/nacl](https://img.shields.io/npm/v/@hugoalh/nacl?label=@hugoalh/nacl&labelColor=CB3837&logo=npm&logoColor=ffffff&style=flat "NPM: @hugoalh/nacl")](https://www.npmjs.com/package/@hugoalh/nacl)
+🔗
+[GitHub](https://github.com/hugoalh/nacl-es)
+[JSR](https://jsr.io/@hugoalh/nacl)
+[NPM](https://www.npmjs.com/package/@hugoalh/nacl)
 
 An ECMAScript module for [NaCl](https://nacl.cr.yp.to/) / [TweetNaCl](https://tweetnacl.cr.yp.to/) high security cryptographic library.
 
