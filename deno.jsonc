@@ -10,7 +10,7 @@
 	},
 	"imports": { // IMPORTANT: Only for development dependencies!
 		"DNT": "jsr:@hugoalh/deno-nodejs-transformer@^0.8.0",
-		"NPP": "https://raw.githubusercontent.com/hugoalh/npm-publish-patcher/e103c0d97d96f47c2fdad7f18887dd5cfacfefc1/deno/cli.ts",
+		"NPP": "https://raw.githubusercontent.com/hugoalh/npm-publish-patcher/fbd82394a858cbbb5d641a7ebdf1b997ed34f30c/deno/cli.ts",
 		"STD_JSONC": "jsr:@std/jsonc@^1.0.2"
 	},
 	"lint": {
