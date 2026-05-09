@@ -4,8 +4,8 @@
 
 🔗
 [GitHub](https://github.com/hugoalh/nacl-es)
-[JSR](https://jsr.io/@hugoalh/nacl)
-[NPM](https://www.npmjs.com/package/@hugoalh/nacl)
+● [JSR](https://jsr.io/@hugoalh/nacl)
+● [NPM](https://www.npmjs.com/package/@hugoalh/nacl)
 
 An ECMAScript module for [NaCl](https://nacl.cr.yp.to/) / [TweetNaCl](https://tweetnacl.cr.yp.to/) high security cryptographic library.
 
