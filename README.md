@@ -11,19 +11,19 @@ An ECMAScript module for [NaCl](https://nacl.cr.yp.to/) / [TweetNaCl](https://tw
 
 This is a modified edition of the [TweetNaCl JS](https://github.com/dchest/tweetnacl-js) which with ECMAScript and TypeScript.
 
-## 🎯 Targets
+## 🎯 Runtime Targets
 
-| **Runtime \\ Source** | **GitHub Raw** | **JSR** | **NPM** |
-|:--|:-:|:-:|:-:|
-| **[Bun](https://bun.sh/)** >= v1.1.0 | ❌ | ✔️ | ✔️ |
-| **[Deno](https://deno.land/)** >= v2.1.0 | ✔️ | ✔️ | ✔️ |
-| **[NodeJS](https://nodejs.org/)** >= v20.9.0 | ❌ | ✔️ | ✔️ |
+Any runtime which support ECMAScript should able to use this; These runtimes are officially supported:
+
+- **[Bun](https://bun.sh/)** >= v1.1.0
+- **[Deno](https://deno.land/)** >= v2.1.0
+- **[NodeJS](https://nodejs.org/)** >= v20.9.0
 
 ## 🛡️ Runtime Permissions
 
 This does not request any runtime permission.
 
-## #️⃣ Sources
+## #️⃣ Sources & Entrypoints
 
 - GitHub Raw
   ```
@@ -38,19 +38,18 @@ This does not request any runtime permission.
   npm:@hugoalh/nacl[@{Tag}]
   ```
 
+| **Name** | **Path** | **Description** |
+|:--|:--|:--|
+| `.` | `./mod.ts` | Default. High level APIs. |
+| `./lowlevel` | `./lowlevel.ts` | Low level APIs. |
+
 > [!NOTE]
+> - Different runtimes have vary support for the sources and entrypoints, visit the runtime documentation for more information.
 > - It is recommended to include tag for immutability.
 > - These are not part of the public APIs hence should not be used:
 >   - Benchmark/Test file (e.g.: `example.bench.ts`, `example.test.ts`).
 >   - Entrypoint name or path include any underscore prefix (e.g.: `_example.ts`, `foo/_example.ts`).
 >   - Identifier/Namespace/Symbol include any underscore prefix (e.g.: `_example`, `Foo._example`).
-
-## ⤵️ Entrypoints
-
-| **Name** | **Path** | **Description** |
-|:--|:--|:--|
-| `.` | `./mod.ts` | Default. High level APIs. |
-| `./lowlevel` | `./lowlevel.ts` | Low level APIs. |
 
 ## 🧩 APIs
 
