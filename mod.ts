@@ -30,13 +30,13 @@ import {
 	crypto_sign_SEEDBYTES,
 	type KeyPair
 } from "./lowlevel.ts";
-export type { KeyPair };
 export {
 	/**
 	 * Generate a `Uint8Array` of the given length containing random bytes of cryptographic quality.
 	 */
 	randomBytesBySize as randomBytes
 } from "./_random_bytes.ts";
+export type { KeyPair };
 /** Length of nonce in bytes. */
 export const boxNonceLength = crypto_box_NONCEBYTES;
 /** Length of overhead added to box compared to original message. */
