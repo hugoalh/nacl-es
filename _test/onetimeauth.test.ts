@@ -1,6 +1,6 @@
 import { deepStrictEqual } from "node:assert";
-import { convertUint8ArrayToBase64String } from "./utility.ts";
 import { crypto_onetimeauth } from "../lowlevel.ts";
+import { convertUint8ArrayToBase64String } from "./utility.ts";
 function tester(m: Uint8Array, k: Uint8Array, out: Uint8Array): void {
 	const result = new Uint8Array(16);
 	crypto_onetimeauth(result, 0, m, 0, m.length, k);

@@ -3,13 +3,13 @@ import {
 	ok
 } from "node:assert";
 import {
-	convertBase64StringToUint8Array,
-	convertUint8ArrayToBase64String
-} from "./utility.ts";
-import {
 	secretBox,
 	secretBoxOpen
 } from "../mod.ts";
+import {
+	convertBase64StringToUint8Array,
+	convertUint8ArrayToBase64String
+} from "./utility.ts";
 function tester(key: string, nonce: string, msg: string, goodBox: string): void {
 	const keyFmt = convertBase64StringToUint8Array(key);
 	const nonceFmt = convertBase64StringToUint8Array(nonce);

@@ -1,13 +1,13 @@
 import { deepStrictEqual } from "node:assert";
 import {
-	convertBase64StringToUint8Array,
-	convertUint8ArrayToBase64String
-} from "./utility.ts";
-import {
 	box,
 	boxNonceLength,
 	boxOpen
 } from "../mod.ts";
+import {
+	convertBase64StringToUint8Array,
+	convertUint8ArrayToBase64String
+} from "./utility.ts";
 function tester(pk: string, sk: string, msg: string, goodBox: string): void {
 	const pkFmt = convertBase64StringToUint8Array(pk);
 	const skFmt = convertBase64StringToUint8Array(sk);

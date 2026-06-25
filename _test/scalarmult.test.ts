@@ -1,12 +1,12 @@
 import { deepStrictEqual } from "node:assert";
 import {
-	convertUint8ArrayToBase64String,
-	convertBase64StringToUint8Array
-} from "./utility.ts";
-import {
 	scalarMult,
 	scalarMultBase
 } from "../mod.ts";
+import {
+	convertUint8ArrayToBase64String,
+	convertBase64StringToUint8Array
+} from "./utility.ts";
 Deno.test("Base", { permissions: "none" }, () => {
 	const golden = new Uint8Array([0x89, 0x16, 0x1F, 0xDE, 0x88, 0x7B, 0x2B, 0x53, 0xDE, 0x54, 0x9A, 0xF4, 0x83, 0x94, 0x01, 0x06, 0xEC, 0xC1, 0x14, 0xD6, 0x98, 0x2D, 0xAA, 0x98, 0x25, 0x6D, 0xE2, 0x3B, 0xDF, 0x77, 0x66, 0x1A]);
 	let input = new Uint8Array([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);

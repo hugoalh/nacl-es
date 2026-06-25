@@ -1,9 +1,9 @@
 import { deepStrictEqual } from "node:assert";
+import { hash } from "../mod.ts";
 import {
 	convertBase64StringToUint8Array,
 	convertUint8ArrayToBase64String
 } from "./utility.ts";
-import { hash } from "../mod.ts";
 function tester(msg: string, goodHash: string): void {
 	const msgFmt = convertBase64StringToUint8Array(msg);
 	const hashResult = hash(msgFmt);

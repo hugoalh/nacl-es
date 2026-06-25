@@ -3,10 +3,6 @@ import {
 	ok
 } from "node:assert";
 import {
-	convertBase64StringToUint8Array,
-	convertUint8ArrayToBase64String
-} from "./utility.ts";
-import {
 	sign,
 	signDetached,
 	signDetachedVerify,
@@ -14,6 +10,10 @@ import {
 	signOpen,
 	signSignatureLength
 } from "../mod.ts";
+import {
+	convertBase64StringToUint8Array,
+	convertUint8ArrayToBase64String
+} from "./utility.ts";
 function tester(sk: string, msg: string, goodSig: string): void {
 	const keys = signKeyPairFromSecretKey(convertBase64StringToUint8Array(sk));
 	const msgFmt = convertBase64StringToUint8Array(msg);
