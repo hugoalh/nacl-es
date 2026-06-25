@@ -3,7 +3,8 @@
 [**⚖️** MIT](./LICENSE.md)
 
 🔗
-[GitHub](https://github.com/hugoalh/nacl-es)
+[DistBoard @hugoalh](https://hugoalh.github.io/distboard/nacl_ecmascript)
+● [GitHub](https://github.com/hugoalh/nacl-es)
 ● [JSR](https://jsr.io/@hugoalh/nacl)
 ● [NPM](https://www.npmjs.com/package/@hugoalh/nacl)
 
