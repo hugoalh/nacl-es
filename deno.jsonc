@@ -6,7 +6,7 @@
 		"indentWidth": 4,
 		"json.trailingCommas": "never",
 		"jsx.bracketPosition": "nextLine",
-		"jsx.forceNewLineSurroundingContent": false,
+		"jsx.forceNewLinesSurroundingContent": false,
 		"jsx.multiLineParens": "never",
 		"lineWidth": 512,
 		"newLineKind": "auto",
