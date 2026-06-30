@@ -7,6 +7,7 @@ authors:
   - name: "HUGOALH"
     alias: "hugoalh"
 repository-code: "https://github.com/hugoalh/nacl-es"
+abstract: "An ECMAScript module for NaCl/TweetNaCl high security cryptographic library."
 keywords:
   - "ecmascript"
   - "es"

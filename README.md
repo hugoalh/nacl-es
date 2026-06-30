@@ -8,7 +8,7 @@
 ● [JSR](https://jsr.io/@hugoalh/nacl)
 ● [NPM](https://www.npmjs.com/package/@hugoalh/nacl)
 
-An ECMAScript module for [NaCl](https://nacl.cr.yp.to/) / [TweetNaCl](https://tweetnacl.cr.yp.to/) high security cryptographic library.
+An ECMAScript module for [NaCl](https://nacl.cr.yp.to/)/[TweetNaCl](https://tweetnacl.cr.yp.to/) high security cryptographic library.
 
 This is a modified edition of the [TweetNaCl JS](https://github.com/dchest/tweetnacl-js) which with ECMAScript and TypeScript.
 

@@ -14,7 +14,7 @@ await invokeDenoNodeJSTransformer({
 		name: jsrManifest.name,
 		//@ts-ignore Lazy type.
 		version: jsrManifest.version,
-		description: "A module for NaCl / TweetNaCl high-security cryptographic library.",
+		description: "A module for NaCl/TweetNaCl high-security cryptographic library.",
 		keywords: [
 			"nacl"
 		],
