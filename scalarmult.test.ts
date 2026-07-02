@@ -2,11 +2,7 @@ import { deepStrictEqual } from "node:assert";
 import {
 	scalarMult,
 	scalarMultBase
-} from "../mod.ts";
-import {
-	convertUint8ArrayToBase64String,
-	convertBase64StringToUint8Array
-} from "./utility.ts";
+} from "./mod.ts";
 Deno.test("Base", { permissions: "none" }, () => {
 	const golden = new Uint8Array([0x89, 0x16, 0x1F, 0xDE, 0x88, 0x7B, 0x2B, 0x53, 0xDE, 0x54, 0x9A, 0xF4, 0x83, 0x94, 0x01, 0x06, 0xEC, 0xC1, 0x14, 0xD6, 0x98, 0x2D, 0xAA, 0x98, 0x25, 0x6D, 0xE2, 0x3B, 0xDF, 0x77, 0x66, 0x1A]);
 	let input = new Uint8Array([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -14,21 +10,21 @@ Deno.test("Base", { permissions: "none" }, () => {
 		//@ts-ignore Test.
 		input = scalarMultBase(input);
 	}
-	deepStrictEqual(convertUint8ArrayToBase64String(input), convertUint8ArrayToBase64String(golden));
+	deepStrictEqual(input, golden);
 });
 function testerMainBase(pk1: string, sk1: string, pk2: string, sk2: string, out: string): void {
-	const pk1Fmt = convertBase64StringToUint8Array(pk1);
-	const sk1Fmt = convertBase64StringToUint8Array(sk1);
-	const pk2Fmt = convertBase64StringToUint8Array(pk2);
-	const sk2Fmt = convertBase64StringToUint8Array(sk2);
+	const pk1Fmt = Uint8Array.fromBase64(pk1);
+	const sk1Fmt = Uint8Array.fromBase64(sk1);
+	const pk2Fmt = Uint8Array.fromBase64(pk2);
+	const sk2Fmt = Uint8Array.fromBase64(sk2);
 	const jpk1 = scalarMultBase(sk1Fmt);
-	deepStrictEqual(convertUint8ArrayToBase64String(jpk1), pk1);
+	deepStrictEqual(jpk1.toBase64(), pk1);
 	const jpk2 = scalarMultBase(sk2Fmt);
-	deepStrictEqual(convertUint8ArrayToBase64String(jpk2), pk2);
+	deepStrictEqual(jpk2.toBase64(), pk2);
 	const jout1 = scalarMult(sk1Fmt, pk2Fmt);
-	deepStrictEqual(convertUint8ArrayToBase64String(jout1), out);
+	deepStrictEqual(jout1.toBase64(), out);
 	const jout2 = scalarMult(sk2Fmt, pk1Fmt);
-	deepStrictEqual(convertUint8ArrayToBase64String(jout2), out);
+	deepStrictEqual(jout2.toBase64(), out);
 }
 Deno.test("Main 1", { permissions: "none" }, () => {
 	testerMainBase(

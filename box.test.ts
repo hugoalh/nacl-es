@@ -3,21 +3,17 @@ import {
 	box,
 	boxNonceLength,
 	boxOpen
-} from "../mod.ts";
-import {
-	convertBase64StringToUint8Array,
-	convertUint8ArrayToBase64String
-} from "./utility.ts";
+} from "./mod.ts";
 function tester(pk: string, sk: string, msg: string, goodBox: string): void {
-	const pkFmt = convertBase64StringToUint8Array(pk);
-	const skFmt = convertBase64StringToUint8Array(sk);
-	const msgFmt = convertBase64StringToUint8Array(msg);
-	const goodBoxFmt = convertBase64StringToUint8Array(goodBox);
+	const pkFmt = Uint8Array.fromBase64(pk);
+	const skFmt = Uint8Array.fromBase64(sk);
+	const msgFmt = Uint8Array.fromBase64(msg);
+	const goodBoxFmt = Uint8Array.fromBase64(goodBox);
 	const nonce = new Uint8Array(boxNonceLength);
 	const boxResult = box(msgFmt, nonce, pkFmt, skFmt);
-	deepStrictEqual(convertUint8ArrayToBase64String(boxResult), goodBox);
+	deepStrictEqual(boxResult.toBase64(), goodBox);
 	const openedBox = boxOpen(goodBoxFmt, nonce, pkFmt, skFmt) ?? Uint8Array.from([]);
-	deepStrictEqual(convertUint8ArrayToBase64String(openedBox), msg);
+	deepStrictEqual(openedBox.toBase64(), msg);
 }
 Deno.test("1", { permissions: "none" }, () => {
 	tester(

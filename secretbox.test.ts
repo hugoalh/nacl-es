@@ -5,21 +5,17 @@ import {
 import {
 	secretBox,
 	secretBoxOpen
-} from "../mod.ts";
-import {
-	convertBase64StringToUint8Array,
-	convertUint8ArrayToBase64String
-} from "./utility.ts";
+} from "./mod.ts";
 function tester(key: string, nonce: string, msg: string, goodBox: string): void {
-	const keyFmt = convertBase64StringToUint8Array(key);
-	const nonceFmt = convertBase64StringToUint8Array(nonce);
-	const msgFmt = convertBase64StringToUint8Array(msg);
-	const goodBoxFmt = convertBase64StringToUint8Array(goodBox);
+	const keyFmt = Uint8Array.fromBase64(key);
+	const nonceFmt = Uint8Array.fromBase64(nonce);
+	const msgFmt = Uint8Array.fromBase64(msg);
+	const goodBoxFmt = Uint8Array.fromBase64(goodBox);
 	const box = secretBox(msgFmt, nonceFmt, keyFmt);
-	deepStrictEqual(convertUint8ArrayToBase64String(box), goodBox);
+	deepStrictEqual(box.toBase64(), goodBox);
 	const openedBox = secretBoxOpen(goodBoxFmt, nonceFmt, keyFmt);
 	ok(openedBox !== null);
-	deepStrictEqual(convertUint8ArrayToBase64String(openedBox), msg);
+	deepStrictEqual(openedBox.toBase64(), msg);
 }
 Deno.test("1", { permissions: "none" }, () => {
 	tester(

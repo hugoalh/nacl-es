@@ -1,5 +1,5 @@
 import { ok } from "node:assert";
-import { verify } from "../mod.ts";
+import { verify } from "./mod.ts";
 Deno.test("1", { permissions: "none" }, () => {
 	ok(verify(new Uint8Array(1), new Uint8Array(1)));
 });

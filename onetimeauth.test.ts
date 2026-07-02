@@ -1,10 +1,9 @@
 import { deepStrictEqual } from "node:assert";
-import { crypto_onetimeauth } from "../lowlevel.ts";
-import { convertUint8ArrayToBase64String } from "./utility.ts";
+import { crypto_onetimeauth } from "./lowlevel.ts";
 function tester(m: Uint8Array, k: Uint8Array, out: Uint8Array): void {
 	const result = new Uint8Array(16);
 	crypto_onetimeauth(result, 0, m, 0, m.length, k);
-	deepStrictEqual(convertUint8ArrayToBase64String(result), convertUint8ArrayToBase64String(out));
+	deepStrictEqual(result, out);
 }
 Deno.test("1", { permissions: "none" }, () => {
 	tester(
