@@ -36,7 +36,7 @@ export {
 	 */
 	randomBytesBySize as randomBytes
 } from "./_random_bytes.ts";
-export type { KeyPair };
+export type { KeyPair } from "./lowlevel.ts";
 /** Length of nonce in bytes. */
 export const boxNonceLength = crypto_box_NONCEBYTES;
 /** Length of overhead added to box compared to original message. */
