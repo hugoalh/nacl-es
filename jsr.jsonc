@@ -4,8 +4,8 @@
 	"version": "0.2.1",
 	"license": "MIT",
 	"exports": {
-		"./lowlevel": "./lowlevel.ts",
-		".": "./mod.ts"
+		".": "./mod.ts",
+		"./lowlevel": "./lowlevel.ts"
 	},
 	"imports": {
 	},
